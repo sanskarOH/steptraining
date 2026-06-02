@@ -48,6 +48,16 @@ public class month {
         System.out.println("Next Date: " +
                 day + "/" + month + "/" + year);
     }
+    static int getDayOfYear(int day, int month, int year) {
+
+    int dayNumber = day;
+
+    for (int i = 1; i < month; i++) {
+        dayNumber += getDaysInMonth(i, year);
+    }
+
+    return dayNumber;
+    }
 
     public static void main(String[] args) {
 
@@ -64,9 +74,11 @@ public class month {
             int year = sc.nextInt();
 
             nextDate(day, month, year);
+            int dayNumber = getDayOfYear(day, month, year);
+            System.out.println("The Day Number is: " + dayNumber);
 
-        } catch (IllegalArgumentException e) {
-            System.out.println("Error: " + e.getMessage());
+        // } catch (IllegalArgumentException e) {
+        //     System.out.println("Error: " + e.getMessage());
 
         } catch (Exception e) {
             System.out.println("Invalid Input");
